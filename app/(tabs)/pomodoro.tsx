@@ -156,7 +156,7 @@ export default function Pomodoro() {
       <View
         style={[
           styles.timerCard,
-          { backgroundColor: isPomodoro ? '#ffc300' : '#538d22' },
+          { backgroundColor: isPomodoro ? '#E63946' : '#2A9D8F' },
         ]}
       >
         <Text style={styles.timerText}>{timeText}</Text>

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function RootLayout() {
   const [isReady, setIsReady] = useState(false);
-  const [hasSeenOnboarding, setHasSeenOnboarding] = useState<boolean>(false);
+  const [hasSeenOnboarding, setHasSeenOnboarding] = useState(false);
 
   useEffect(() => {
     const checkOnboarding = async () => {

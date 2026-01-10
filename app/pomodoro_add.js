@@ -164,9 +164,6 @@ export default function Pomodoro_Add() {
 function DurationPicker({
   value,
   onChange,
-}: {
-  value: number
-  onChange: (v: number) => void
 }) {
   return (
     <View style={styles.durationContainer}>
@@ -195,11 +192,6 @@ function SettingRow({
   value,
   onChange,
   isLast = false,
-}: {
-  label: string
-  value: boolean
-  onChange: (v: boolean) => void
-  isLast?: boolean
 }) {
   return (
     <View

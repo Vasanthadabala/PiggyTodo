@@ -56,7 +56,7 @@ export default function Pomodoro() {
           : settings.shortBreakTime * 60
       )
     }
-  }, [mode, breakType, settings])
+  }, [mode, breakType, settings, isRunning])
 
   /* ---------------- TIMER ---------------- */
   useEffect(() => {
@@ -74,10 +74,10 @@ export default function Pomodoro() {
     }, 1000)
 
     return () => clearInterval(intervalRef.current)
-  }, [isRunning])
+  }, [isRunning, handleSessionEnd])
 
   /* ---------------- SESSION END ---------------- */
-  const handleSessionEnd = () => {
+  const handleSessionEnd = useCallback(() => {
     setIsRunning(false)
 
     let nextMode = mode
@@ -113,7 +113,15 @@ export default function Pomodoro() {
     ) {
       setTimeout(() => setIsRunning(true), 300)
     }
-  }
+  }, [
+    mode,
+    settings.longBreakInterval,
+    settings.longBreakTime,
+    settings.shortBreakTime,
+    settings.pomodoroTime,
+    settings.autoBreaks,
+    settings.autoPomodoro,
+  ])
 
   /* ---------------- SKIP ---------------- */
   const handleSkip = () => {
